@@ -1,0 +1,13 @@
+load_module('lang.cxx.*')
+
+#srcs = [local('hw.c')]
+#exec = local('hw')
+
+program = cxx_binary(
+  #inputs = cpp_compile(sources = srcs),
+  inputs = cpp_compile(sources = glob(['*.c'])),
+  #output = exec
+  output = options.outbin
+)
+
+run = gentarget([[program]], explicit=True)
